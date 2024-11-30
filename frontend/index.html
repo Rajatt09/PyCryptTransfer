@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secure File Transfer</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="file_transfer.js"></script>
+    <script
+      defer
+      src="node_modules/socket.io-client/dist/socket.io.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Authentication Section -->
+      <section id="auth-section">
+        <header id="header1">
+          <h1>Secure File Transfer</h1>
+        </header>
+        <div class="auth-container">
+          <h2 id="auth-title">Login</h2>
+          <form id="auth-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+
+            <button type="submit" id="auth-submit">Login</button>
+            <p id="toggle-auth">
+              Don't have an account?
+              <a href="#" id="switch-to-signup">Sign up here</a>
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <!-- Main Section -->
+      <main id="main-section" class="hidden">
+        <header>
+          <h1>Secure File Transfer</h1>
+          <nav id="navbar">
+            <a href="#" id="logout-link" class="hidden">Logout</a>
+          </nav>
+        </header>
+        <section class="upload-section">
+          <h2>Upload a File</h2>
+          <p>Encrypt and securely send a file.</p>
+          <input type="file" id="file-input" />
+          <label for="username">Receiver's username:</label>
+          <input type="text" id="receiver-name" name="receiver-name" required />
+          <button id="upload-button">Upload and Send</button>
+        </section>
+
+        <section class="received-section">
+          <h2>Received Files</h2>
+          <p>Click a file to download or decrypt.</p>
+          <ul id="received-files">
+            <!-- Files dynamically populated -->
+          </ul>
+        </section>
+
+        <section class="received-section">
+          <h2>Request List</h2>
+          <p id="request-empty-label">Request list is empty.</p>
+          <ul id="request-list">
+            <!-- Requests will dynamically populate here -->
+          </ul>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2024 Secure File Transfer. All Rights Reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
